@@ -1,4 +1,4 @@
-"""Phase 0 smoke test: the package installs and exposes its version."""
+"""the package installs and exposes its version."""
 
 from skillguard import __version__
 

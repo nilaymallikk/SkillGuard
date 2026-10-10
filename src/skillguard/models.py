@@ -33,10 +33,10 @@ class Recommendation(StrEnum):
 
 # Points contributed to the risk score by one finding of each severity
 SEVERITY_POINTS: dict[Severity, int] = {
-    Severity.LOW: 1,
-    Severity.MEDIUM: 5,
-    Severity.HIGH: 10,
-    Severity.CRITICAL: 20,
+    Severity.LOW: 5,
+    Severity.MEDIUM: 10,
+    Severity.HIGH: 25,
+    Severity.CRITICAL: 50,
 }
 
 
