@@ -1,0 +1,6 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "skillguard_scan": "./src/skillguard/graph.py:graph"
+  }
+}
