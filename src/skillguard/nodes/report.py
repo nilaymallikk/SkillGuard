@@ -10,6 +10,17 @@ from skillguard.models import Report
 from skillguard.state import ScanState
 
 
+def _skill_name(state: ScanState) -> str:
+    """Prefer the name declared in SKILL.md front-matter, else the directory."""
+    context = state.get("context")
+    if context is None:
+        return "unknown"
+    declared = context.manifest.get("name")
+    if isinstance(declared, str) and declared:
+        return declared
+    return Path(context.skill_path).name or "unknown"
+
+
 def report_node(state: ScanState) -> dict[str, object]:
     context = state.get("context")
     risk = state.get("risk")
