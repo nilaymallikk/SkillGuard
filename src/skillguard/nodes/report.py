@@ -29,7 +29,7 @@ def report_node(state: ScanState) -> dict[str, object]:
 
     return {
         "report": Report(
-            skill_name=Path(context.skill_path).name or "unknown",
+            skill_name=_skill_name(state),
             source=state.get("input_ref", context.skill_path),
             scanned_at=datetime.now(UTC).isoformat(),
             components=context.components,

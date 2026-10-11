@@ -60,6 +60,21 @@ def _render(report: Report) -> None:
     summary.add_row("Recommendation", report.risk.recommendation.value)
     console.print(summary)
 
+    if report.components:
+        components = Table(title=f"Components ({len(report.components)})")
+        components.add_column("Path")
+        components.add_column("Type")
+        components.add_column("Lines", justify="right")
+        components.add_column("Exec", justify="center")
+        for component in report.components:
+            components.add_row(
+                component.path,
+                component.type,
+                str(component.lines),
+                "yes" if component.executable else "no",
+            )
+        console.print(components)
+
     if not report.findings:
         console.print("[green]No findings.[/]")
         return
