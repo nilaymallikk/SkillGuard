@@ -23,3 +23,11 @@ MAX_INPUT_BYTES: int = 100 * 1024 * 1024  # 100 MiB
 IGNORE_DIRS: frozenset[str] = frozenset(
     {".git", ".venv", "venv", "node_modules", "__pycache__", ".mypy_cache", ".ruff_cache"}
 )
+
+# File that identifies a skill and carries its front-matter manifest
+SKILL_MANIFEST_NAME: str = "SKILL.md"
+
+# Extensions whose contents can execute; drives the 1.3x risk multiplier
+EXECUTABLE_EXTENSIONS: frozenset[str] = frozenset(
+    {".py", ".sh", ".bash", ".zsh", ".js", ".mjs", ".cjs", ".ts", ".rb", ".pl", ".ps1", ".bat"}
+)
